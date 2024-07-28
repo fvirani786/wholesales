@@ -5,10 +5,11 @@ const TrackList = ({ tracks, onEdit, onDelete, onPlay }) => {
     <div>
       {tracks.map(track => (
         <div key={track.id}>
-          <p>{track.name} by {track.artist}</p>
+          <h3>{track.name}</h3>
+          <p>{track.artist}</p>
+          <button onClick={() => onPlay(track)}>Play</button>
           <button onClick={() => onEdit(track)}>Edit</button>
           <button onClick={() => onDelete(track.id)}>Delete</button>
-          <button onClick={() => onPlay(track)}>Play</button>
         </div>
       ))}
     </div>
@@ -16,3 +17,4 @@ const TrackList = ({ tracks, onEdit, onDelete, onPlay }) => {
 };
 
 export default TrackList;
+

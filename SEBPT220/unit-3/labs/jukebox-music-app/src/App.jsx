@@ -10,10 +10,11 @@ const App = () => {
   const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
-    fetch('/api/tracks')
+    fetch('http://localhost:5001/api/tracks') // Change to new port
       .then(response => response.json())
       .then(data => setTracks(data));
   }, []);
+  
 
   const addTrack = (track) => {
     fetch('/api/tracks', {
@@ -75,6 +76,7 @@ const App = () => {
             }
             setShowForm(false);
           }}
+          onCancel={() => setShowForm(false)}
         />
       )}
       {currentTrack && <NowPlaying track={currentTrack} />}
